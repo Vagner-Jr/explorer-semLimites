@@ -48,7 +48,35 @@
           </p>
         </div>
       </div>
+      <form id="contact">
+        <fieldset>
+          <h1>Entre em contato</h1>
+          <div class="fieldset-wrapper">
+            <div class="input-wrapper">
+              <label for="name">
+                <img src="./assets/user.svg" alt="icone de um usuário">
+                <p>Seu nome</p>
+              </label>
+              <input type="text" id="name" required>
+            </div>
+            <div class="input-wrapper">
+              <label for="name">
+                <img src="./assets/at.svg" alt="icone do caracter arroba">
+                <p>E-mail</p>
+              </label>
+              <input type="email" required minlength="11">
+            </div>
+            <div class="input-wrapper">
+              <textarea id="message" placeholder="Digite sua mensagem aqui..."></textarea>
+            </div>
+          </div>
+        </fieldset>
+        <input type="submit" id="submit" value="Enviar Mensagem">
+      </form>
     </main>
+    <footer>
+      <p>© 2023 - Rocketseat Explorer</p>
+    </footer>
   </div>
 </body>
 
