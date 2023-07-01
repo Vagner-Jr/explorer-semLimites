@@ -10,9 +10,15 @@
   --header-white: #f9f4fb;
   --primary-color: #b52184;
   --secundary-color: #312d64;
+  --h1-header: clamp(2.6rem, 5vw, 6rem);
+  --p-header: clamp(1.6rem, 3vw, 3.2rem);
+  --h2-card: clamp(2.8rem, 1vw, 3.2rem);
+  --p-card: clamp(1.6rem, 1vw, 2rem);
+  --h1-form: clamp(2.9rem, 3vw, 4.2rem);
 }
 
 body {
+  height: 100vh;
   font-family: "Mulish", sans-serif;
   text-align: center;
   color: var(--primary-color);
@@ -27,24 +33,27 @@ header {
 
 header img:first-child {
   width: 100%;
-  max-width: 400px;
+  max-width: 45rem;
 }
 
 header h1 {
   margin-top: 1.6rem;
-  font-size: 3.4rem;
+  font-size: var(--h1-header);
 }
 
 header p {
-  font-size: 2rem;
+  font-size: var(--p-header);
   color: var(--secundary-color);
 }
 
 header img:last-child {
+  width: 6rem;
+  height: 10rem;
   margin-top: 3.2rem;
   padding: 1.6rem 0.6rem;
   border: 4px solid;
   border-radius: 8rem;
+  transition: 0.3s ease;
 }
 
 main {
@@ -55,7 +64,7 @@ main #cards {
   display: flex;
   flex-direction: column;
   gap: 4.8rem;
-  padding: 4.8rem 3.8rem;
+  padding: 4.8rem 3.2rem;
 }
 
 #card {
@@ -66,11 +75,11 @@ main #cards {
 
 #card h2 {
   margin-bottom: 1.6rem;
-  font-size: 3rem;
+  font-size: var(--h2-card);
 }
 
 #card p {
-  font-size: 1.6rem;
+  font-size: var(--p-card);
   color: var(--secundary-color);
 }
 
@@ -79,16 +88,17 @@ main #cards {
 }
 
 form {
-  padding: 7.8rem 4rem;
+  height: 60rem;
   background: #fff;
 }
 
 form h1 {
   margin-bottom: 4rem;
-  font-size: 3.2rem;
+  font-size: var(--h1-form);
 }
 
 fieldset {
+  padding: 7.8rem 3.2rem;
   border: none;
 }
 
@@ -144,15 +154,80 @@ input[type="submit"] {
   cursor: pointer;
   color: #fff;
   background: var(--bg-body);
-  transition: .3s ease;
-}
-
-input[type="submit"]:hover {
-  scale: 1.025;
 }
 
 footer {
   padding: 3.2rem;
   font-size: 2rem;
   color: #fff;
+  background: var(--bg-body);
+}
+
+header img:last-child,
+#card,
+input[type="submit"] {
+  transition: 0.3s ease;
+}
+
+header img:last-child:hover,
+#card:hover,
+input[type="submit"]:hover {
+  scale: 1.025;
+}
+
+@media (min-width: 768px) {
+  main #cards {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 4rem 8rem;
+  }
+
+  #card {
+    width: 45%;
+  }
+
+  fieldset {
+    padding: 7.8rem 8rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
+    display: grid;
+    grid-template-areas:
+      "title astro"
+      "title astro";
+  }
+
+  header img:first-child {
+    grid-area: astro;
+    padding-left: 2.4rem;
+  }
+
+  header > div {
+    grid-area: title;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 6rem 0 0 4rem;
+    text-align: left;
+  }
+
+  main #cards {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 4rem 8rem;
+  }
+
+  form::before {
+    content: "";
+    display: flex;
+    width: 60rem;
+    height: 100%;
+    float: right;
+    text-align: right;
+    margin-left: 4rem;
+    background: url(./assets/stars.png) no-repeat;
+  }
 }
